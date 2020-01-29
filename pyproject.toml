@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "enumagic"
-version = "0.0.1"
+version = "0.0.2"
 readme = "README.rst"
 license = "Zlib"
 description = "Enums infused with magic."
@@ -11,12 +11,11 @@ authors = [
 ]
 keywords = ["enum", "magic", "django"]
 classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
+    "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: zlib/libpng License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
-    "Programming Language :: Python",
     "Programming Language :: Python :: 3.5",
     "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",

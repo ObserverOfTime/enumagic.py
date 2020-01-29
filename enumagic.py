@@ -187,6 +187,7 @@ class MappingEnum(Enum, metaclass=MappingMeta):
             raise ValueError('Duplicate index found: %d' % index)
         if label in self.__class__.labels:
             raise ValueError('Duplicate label found: %s' % label)
+        self.index, self.label = index, label
 
     def __str__(self) -> str:
         """
@@ -334,6 +335,19 @@ class ChoiceEnum(str, Enum, metaclass=ChoiceMeta):
             'BLUE'
         """
         return self.name
+
+    def __hash__(self) -> int:
+        """
+        Return the hash of the instance.
+
+        Returns:
+            :obj:`int`: The hashed name.
+
+        Examples:
+            >>> hash(ColorChoice.RED)
+            364091286298964602
+        """
+        return hash(self.name)
 
     def __eq__(self, other: Any) -> bool:
         """
