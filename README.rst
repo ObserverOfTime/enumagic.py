@@ -26,3 +26,8 @@ Python enums that work like magic.
 .. |zlib| image:: https://img.shields.io/badge/license-zlib-blue.svg?logo=spdx
    :target: https://spdx.org/licenses/Zlib.html#licenseText
    :alt: Zlib License
+
+
+| The project is designed so that each module is self-sufficient.
+| You are free to vendor the one(s) you need into your project,
+| as long as you adhere to the terms of the Zlib license.

@@ -6,6 +6,8 @@ from sys import version_info
 
 import enumagic as em
 
+HAS_DJANGO = find_spec('django') is not None
+
 
 class IterTestCase(ut.TestCase):
     class _IterFixture(em.IterEnum):
@@ -149,10 +151,11 @@ class ChoiceTestCase(ut.TestCase):
         B = 'Bob'
 
     def test_instance(self):
+        from typing import Iterable
         A = self._ChoiceFixture.A
         self.assertIsInstance(A, str)
-        cls = self._ChoiceFixture.__class__
-        self.assertIs(cls.__base__, em.IterMeta)
+        cls = self._ChoiceFixture
+        self.assertIsInstance(cls, Iterable)
 
     def test_new(self):
         attr = 'do_not_call_in_templates'
@@ -176,7 +179,7 @@ class ChoiceTestCase(ut.TestCase):
         A2 = em.django.ChoiceEnum('_A', 'A').A
         self.assertEqual(A1, A2)
 
-    @ut.skipUnless(find_spec('django'), 'requires Django')
+    @ut.skipUnless(HAS_DJANGO, 'requires Django')
     def test_choices(self):
         from django.conf import settings
         from django.db.models import CharField, Model
