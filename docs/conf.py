@@ -18,11 +18,11 @@ path.insert(0, abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'enumagic'
-copyright = '2020, ObserverOfTime'
+copyright = '2020-2021, ObserverOfTime'
 author = 'ObserverOfTime'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.0'
+release = '0.1.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -73,6 +73,7 @@ autodoc_default_options = {
         '__init__',
         '__module__',
         '__weakref__',
+        '__init_subclass__',
         'do_not_call_in_templates',
     )),
 }
@@ -81,7 +82,7 @@ always_document_param_types = True
 
 # Intersphinx settings
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3.5/', None),
+    'python': ('https://docs.python.org/3.6/', None),
 }
 
 # -- Options for HTML output -------------------------------------------------
@@ -98,4 +99,4 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = []

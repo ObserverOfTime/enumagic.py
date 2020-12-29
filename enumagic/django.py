@@ -1,6 +1,6 @@
 """Special enums for Django."""
 
-# Copyright (c) 2020 ObserverOfTime
+# Copyright (c) 2020-2021 ObserverOfTime
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -27,10 +27,9 @@ _ET = TypeVar('_ET', bound=Type[Enum])
 
 class ChoiceMeta(EnumMeta):
     """Choice enum metaclass."""
-    def __new__(meta, *args, **kwargs):
-        cls = super().__new__(meta, *args, **kwargs)
+    def __init__(cls, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         cls.do_not_call_in_templates = True
-        return cls
 
     def __iter__(cls) -> Iterator[Tuple[str, _VT]]:
         """
@@ -124,11 +123,11 @@ class ChoiceEnum(str, Enum, metaclass=ChoiceMeta):
     .. automethod:: __eq__(other: Any) -> bool
 
     .. _field choices:
-        https://docs.djangoproject.com/en/3.0/ref
+        https://docs.djangoproject.com/en/3.1/ref
         /models/fields/#django.db.models.Field.choices
 
     .. _template system:
-        https://docs.djangoproject.com/en/3.0/ref
+        https://docs.djangoproject.com/en/3.1/ref
         /templates/api/#variables-and-lookups
     """
     def __str__(self) -> str:

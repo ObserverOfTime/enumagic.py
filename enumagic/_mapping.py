@@ -1,6 +1,6 @@
 """Mapping enum module."""
 
-# Copyright (c) 2020 ObserverOfTime
+# Copyright (c) 2020-2021 ObserverOfTime
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -136,9 +136,9 @@ class MappingEnum(Enum, metaclass=MappingMeta):
     """
     def __init__(self, index: int, label: str):
         if index in self.__class__.indices:
-            raise ValueError('Duplicate index found: %d' % index)
+            raise ValueError(f'Duplicate index found: {index}')
         if label in self.__class__.labels:
-            raise ValueError('Duplicate label found: %s' % label)
+            raise ValueError(f'Duplicate label found: {label}')
         self.index, self.label = index, label
 
     def __str__(self) -> str:

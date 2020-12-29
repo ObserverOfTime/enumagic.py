@@ -1,4 +1,4 @@
-Copyright (c) 2020 ObserverOfTime
+Copyright (c) 2020-2021 ObserverOfTime
 
 This software is provided 'as-is', without any express
 or implied warranty. In no event will the authors be held

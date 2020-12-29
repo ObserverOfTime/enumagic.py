@@ -33,7 +33,7 @@ class IterTestCase(ut.TestCase):
         C = em.IterEnum('_E', 'C').C
         self.assertNotIn(C, self._IterFixture)
 
-    @ut.skipIf(version_info < (3, 8), 'requires Python 3.8')
+    @ut.skipIf(version_info < (3, 8), 'requires Python 3.8+')
     def test_contains_invalid(self):
         with self.assertRaises(TypeError):
             1 in self._IterFixture
@@ -157,7 +157,7 @@ class ChoiceTestCase(ut.TestCase):
         cls = self._ChoiceFixture
         self.assertIsInstance(cls, Iterable)
 
-    def test_new(self):
+    def test_init(self):
         attr = 'do_not_call_in_templates'
         self.assertTrue(hasattr(self._ChoiceFixture, attr))
         self.assertTrue(getattr(self._ChoiceFixture, attr))
