@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 
 import unittest as ut
-from importlib.util import find_spec
 from sys import version_info
 
 import enumagic as em
-
-HAS_DJANGO = find_spec('django') is not None
 
 
 class IterTestCase(ut.TestCase):
@@ -143,60 +140,6 @@ class StrTestCase(ut.TestCase):
     def test_str(self):
         B = self._StrFixture.B
         self.assertEqual(str(B), 'Bob')
-
-
-class ChoiceTestCase(ut.TestCase):
-    class _ChoiceFixture(em.django.ChoiceEnum):
-        A = 'Alice'
-        B = 'Bob'
-
-    def test_instance(self):
-        from typing import Iterable
-        A = self._ChoiceFixture.A
-        self.assertIsInstance(A, str)
-        cls = self._ChoiceFixture
-        self.assertIsInstance(cls, Iterable)
-
-    def test_init(self):
-        attr = 'do_not_call_in_templates'
-        self.assertTrue(hasattr(self._ChoiceFixture, attr))
-        self.assertTrue(getattr(self._ChoiceFixture, attr))
-
-    def test_getitem(self):
-        B = self._ChoiceFixture['B']
-        self.assertEqual(B, 'Bob')
-
-    def test_str(self):
-        B = self._ChoiceFixture.B
-        self.assertEqual(str(B), 'B')
-
-    def test_hash(self):
-        A = self._ChoiceFixture.A
-        self.assertEqual(hash(A), hash('A'))
-
-    def test_eq(self):
-        A1 = self._ChoiceFixture.A
-        A2 = em.django.ChoiceEnum('_A', 'A').A
-        self.assertEqual(A1, A2)
-
-    @ut.skipUnless(HAS_DJANGO, 'requires Django')
-    def test_choices(self):
-        from django.conf import settings
-        from django.db.models import CharField, Model
-        settings.configure(INSTALLED_APPS=[__name__])
-        __import__('django').setup()
-        person = type('_Person', (Model,), {
-            'name': CharField(choices=self._ChoiceFixture),
-            '__module__': __name__
-        })(name=self._ChoiceFixture.A)
-        name = person._meta.get_field('name')
-        display = person.get_name_display()
-        self.assertEqual(person.name, 'A')
-        self.assertEqual(display, 'Alice')
-        self.assertListEqual(
-            list(self._ChoiceFixture),
-            list(name.choices)
-        )
 
 
 if __name__ == '__main__':

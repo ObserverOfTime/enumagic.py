@@ -18,11 +18,11 @@ path.insert(0, abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'enumagic'
-copyright = '2020-2021, ObserverOfTime'
+copyright = '2020-2022, ObserverOfTime'
 author = 'ObserverOfTime'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.1'
+release = '0.2.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -74,7 +74,6 @@ autodoc_default_options = {
         '__module__',
         '__weakref__',
         '__init_subclass__',
-        'do_not_call_in_templates',
     )),
 }
 autodoc_inherit_docstrings = True
@@ -82,7 +81,7 @@ always_document_param_types = True
 
 # Intersphinx settings
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3.6/', None),
+    'python': ('https://docs.python.org/3.7/', None),
 }
 
 # -- Options for HTML output -------------------------------------------------

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "enumagic"
-version = "0.1.1"
+version = "0.2.0"
 readme = "README.rst"
 license = "Zlib"
 description = "Enums infused with magic."
@@ -16,10 +16,10 @@ classifiers = [
     "License :: OSI Approved :: zlib/libpng License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.6",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3 :: Only",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
@@ -28,14 +28,7 @@ classifiers = [
 include = "enumagic"
 
 [tool.poetry.dependencies]
-python = "^3.6"
-
-[tool.poetry.dependencies.django]
-version = ">=2.2"
-optional = true
-
-[tool.poetry.extras]
-django = ["django"]
+python = "^3.7"
 
 [tool.poetry.dev-dependencies]
 sphinx = "^3.4.1"
