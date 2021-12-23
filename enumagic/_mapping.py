@@ -1,6 +1,6 @@
 """Mapping enum module."""
 
-# Copyright (c) 2020-2021 ObserverOfTime
+# Copyright (c) 2020-2022 ObserverOfTime
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages

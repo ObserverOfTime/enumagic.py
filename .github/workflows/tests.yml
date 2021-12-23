@@ -6,13 +6,10 @@ on:
 name: tests
 jobs:
   tests:
-    if: |
-      contains(github.event.commits[0].message, '[skip ci]') == false &&
-      contains(github.event.commits[0].message, '[ci skip]') == false
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [3.6, 3.7, 3.8, 3.9]
+        python: ['3.7', '3.8', '3.9', '3.10']
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -20,11 +17,5 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{matrix.python}}
-    - name: Install Poetry
-      uses: abatilo/actions-poetry@v2.1.0
-      with:
-        poetry-version: 1.1.4
-    - name: Install dependencies
-      run: poetry install -E django
     - name: Run unit tests
-      run: poetry run ./tests.py -v
+      run: python -mtests -v

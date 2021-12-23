@@ -9,7 +9,9 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
+from linecache import getline
 from os.path import abspath
+from re import search
 from sys import path
 
 path.insert(0, abspath('..'))
@@ -18,11 +20,12 @@ path.insert(0, abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'enumagic'
-copyright = '2020-2021, ObserverOfTime'
+copyright = '2020-2022, ObserverOfTime'
 author = 'ObserverOfTime'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.1'
+release = search("'(.+)'", getline('enumagic/__init__.py', 25)).group(1)
+
 
 
 # -- General configuration ---------------------------------------------------
@@ -74,7 +77,6 @@ autodoc_default_options = {
         '__module__',
         '__weakref__',
         '__init_subclass__',
-        'do_not_call_in_templates',
     )),
 }
 autodoc_inherit_docstrings = True
@@ -82,7 +84,7 @@ always_document_param_types = True
 
 # Intersphinx settings
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3.6/', None),
+    'python': ('https://docs.python.org/3.7/', None),
 }
 
 # -- Options for HTML output -------------------------------------------------

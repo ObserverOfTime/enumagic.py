@@ -1,6 +1,6 @@
 """Python enums that work like magic."""
 
-# Copyright (c) 2020-2021 ObserverOfTime
+# Copyright (c) 2020-2022 ObserverOfTime
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -18,10 +18,8 @@
 #   misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-import enumagic.django as django
-
 from ._iter import IterEnum, IterMeta
 from ._mapping import MappingEnum, MappingMeta
 from ._str import StrEnum
 
-__version__ = '0.1.1'
+__version__ = '0.2.0'

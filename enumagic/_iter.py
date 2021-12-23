@@ -1,6 +1,6 @@
 """Iterable enum module."""
 
-# Copyright (c) 2020-2021 ObserverOfTime
+# Copyright (c) 2020-2022 ObserverOfTime
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -58,9 +58,6 @@ class IterMeta(EnumMeta):
             ``True`` if the enum has a member that
             matches the given item, ``False`` otherwise.
 
-        Raises:
-            :obj:`TypeError`: If the item is not a string or enum instance.
-
         Examples:
             >>> 'B' in IterExample
             True
@@ -69,6 +66,8 @@ class IterMeta(EnumMeta):
         """
         if isinstance(item, str):
             return item in cls.__members__
+        if not isinstance(item, Enum):
+            return False
         return super().__contains__(item)
 
 
