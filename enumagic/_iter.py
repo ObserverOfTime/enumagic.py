@@ -19,7 +19,7 @@
 # 3. This notice may not be removed or altered from any source distribution.
 
 from enum import Enum, EnumMeta
-from typing import Any, Iterator, Type, TypeVar, Tuple
+from typing import Any, Iterator, Tuple, Type, TypeVar
 
 _VT = TypeVar('_VT')
 _ET = TypeVar('_ET', bound=Type[Enum])
@@ -65,7 +65,7 @@ class IterMeta(EnumMeta):
             False
         """
         if isinstance(item, str):
-            return item in cls.__members__
+            return item in cls.__members__.keys()
         if not isinstance(item, Enum):
             return False
         return super().__contains__(item)

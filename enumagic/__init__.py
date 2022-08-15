@@ -22,4 +22,4 @@ from ._iter import IterEnum, IterMeta
 from ._mapping import MappingEnum, MappingMeta
 from ._str import StrEnum
 
-__version__ = '0.2.0'
+__version__: str = '0.2.0'

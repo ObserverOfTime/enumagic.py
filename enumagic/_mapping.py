@@ -19,7 +19,7 @@
 # 3. This notice may not be removed or altered from any source distribution.
 
 from enum import Enum, EnumMeta
-from typing import Any, Dict, Iterator, Type, TypeVar, Tuple
+from typing import Any, Dict, Iterator, Tuple, Type, TypeVar
 
 _ET = TypeVar('_ET', bound=Type[Enum])
 
