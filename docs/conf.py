@@ -20,7 +20,7 @@ path.insert(0, abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'enumagic'
-copyright = '2020-2022, ObserverOfTime'
+copyright = '2020-2023, ObserverOfTime'
 author = 'ObserverOfTime'
 
 # The full version, including alpha/beta/rc tags
@@ -83,7 +83,7 @@ always_document_param_types = True
 
 # Intersphinx settings
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3.7/', None),
+    'python': ('https://docs.python.org/3.8/', None),
 }
 
 # -- Options for HTML output -------------------------------------------------

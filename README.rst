@@ -19,8 +19,8 @@ Python enums that work like magic.
    :target: https://enumagic.readthedocs.io/en/latest/
    :alt: Read the Docs
 
-.. |test| image:: https://github.com/ObserverOfTime/enumagic.py/workflows/tests/badge.svg
-   :target: https://github.com/ObserverOfTime/enumagic.py/actions?query=workflow%3Atests
+.. |test| image:: https://img.shields.io/github/actions/workflow/status/ObserverOfTime/enumagic.py/tests.yml?logo=github&label=tests
+   :target: https://github.com/ObserverOfTime/enumagic.py/actions/workflows/tests.yml
    :alt: GitHub Actions
 
 .. |zlib| image:: https://img.shields.io/badge/license-zlib-blue.svg?logo=spdx

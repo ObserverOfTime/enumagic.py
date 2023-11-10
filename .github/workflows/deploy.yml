@@ -5,15 +5,16 @@ name: deploy
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
+        python-version: '3.11'
+    - name: Build source package
+      run: python setup.py sdist
     - name: Deploy to PyPI
-      uses: casperdcl/deploy-pypi@v2
-      with:
-        build: true
-        password: ${{secrets.PYPI_TOKEN}}
+      uses: pypa/gh-action-pypi-publish@release/v1
