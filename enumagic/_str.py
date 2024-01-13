@@ -1,6 +1,6 @@
 """String enum module."""
 
-# Copyright (c) 2020-2023 ObserverOfTime
+# Copyright (c) 2020-2024 ObserverOfTime
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -35,8 +35,6 @@ class StrEnum(str, Enum):
         :annotation:
 
         alias of :class:`enum.EnumMeta`
-
-    .. automethod:: __str__() -> str
     """
     def __str__(self) -> str:
         """

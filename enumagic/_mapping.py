@@ -1,6 +1,6 @@
 """Mapping enum module."""
 
-# Copyright (c) 2020-2023 ObserverOfTime
+# Copyright (c) 2020-2024 ObserverOfTime
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -19,14 +19,14 @@
 # 3. This notice may not be removed or altered from any source distribution.
 
 from enum import Enum, EnumMeta
-from typing import Any, Dict, Iterator, Tuple, Type, TypeVar
+from typing import Any, Iterator, TypeVar
 
-_ET = TypeVar('_ET', bound=Type[Enum])
+_ET = TypeVar('_ET', bound=type[Enum])
 
 
 class MappingMeta(EnumMeta):
     """Mapping enum metaclass."""
-    def __iter__(cls) -> Iterator[Tuple[int, str]]:
+    def __iter__(cls) -> Iterator[tuple[int, str]]:
         """
         Iterate over the values of the enum.
 
@@ -70,7 +70,7 @@ class MappingMeta(EnumMeta):
         return super().__call__(value)
 
     @property
-    def items(cls) -> Dict[str, int]:
+    def items(cls) -> dict[str, int]:
         """
         Get a mapping of ``label``/``index`` pairs.
 
@@ -84,7 +84,7 @@ class MappingMeta(EnumMeta):
         return {lbl: idx for idx, lbl in cls}
 
     @property
-    def indices(cls) -> Tuple[int, ...]:
+    def indices(cls) -> tuple[int, ...]:
         """
         Get the indices of the enum.
 
@@ -98,7 +98,7 @@ class MappingMeta(EnumMeta):
         return tuple(val[0] for val in cls)
 
     @property
-    def labels(cls) -> Tuple[str, ...]:
+    def labels(cls) -> tuple[str, ...]:
         """
         Get the labels of the enum.
 
@@ -131,8 +131,6 @@ class MappingEnum(Enum, metaclass=MappingMeta):
         :annotation:
 
         alias of :class:`enumagic.MappingMeta`
-
-    .. automethod:: __str__() -> str
     """
     def __init__(self, index: int, label: str):
         if index in self.__class__.indices:

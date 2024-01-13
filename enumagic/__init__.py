@@ -1,6 +1,6 @@
 """Python enums that work like magic."""
 
-# Copyright (c) 2020-2023 ObserverOfTime
+# Copyright (c) 2020-2024 ObserverOfTime
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -22,4 +22,4 @@ from ._iter import IterEnum, IterMeta
 from ._mapping import MappingEnum, MappingMeta
 from ._str import StrEnum
 
-__version__: str = '0.2.1'
+__version__: str = '0.2.2'

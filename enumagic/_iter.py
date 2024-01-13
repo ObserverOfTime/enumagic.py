@@ -1,6 +1,6 @@
 """Iterable enum module."""
 
-# Copyright (c) 2020-2023 ObserverOfTime
+# Copyright (c) 2020-2024 ObserverOfTime
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -19,15 +19,15 @@
 # 3. This notice may not be removed or altered from any source distribution.
 
 from enum import Enum, EnumMeta
-from typing import Any, Iterator, Tuple, Type, TypeVar
+from typing import Any, Iterator, TypeVar
 
 _VT = TypeVar('_VT')
-_ET = TypeVar('_ET', bound=Type[Enum])
+_ET = TypeVar('_ET', bound=type[Enum])
 
 
 class IterMeta(EnumMeta):
     """Iterable enum metaclass."""
-    def __iter__(cls) -> Iterator[Tuple[str, _VT]]:
+    def __iter__(cls) -> Iterator[tuple[str, _VT]]:
         """
         Iterate over the entries of the enum.
 
